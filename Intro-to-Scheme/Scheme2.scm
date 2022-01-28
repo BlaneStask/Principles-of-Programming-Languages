@@ -35,7 +35,6 @@
     (set-cdr! q (cons x (cdr q)))
     (addq (cdr q) x)))
     
-
 ; get the size of the queue
 (define (lenq q)
     (cond ((null? q) 0)
