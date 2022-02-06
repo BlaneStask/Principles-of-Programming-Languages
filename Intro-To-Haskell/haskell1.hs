@@ -24,13 +24,6 @@ detach n (x:xs)
     | n == snd x = detach n xs
     | otherwise = x : detach n xs
 
--- d
---{- Error: Non-exhaustive patterns in function path
-path :: Node -> Node -> Graph -> [[Node]]
-path n m []
-    | n == m = (n : []) : []
----}
-
 -- 2
 type Key = Int
 type Value = Int
@@ -81,5 +74,3 @@ main = do
   print(adj 4 [(1,2), (1, 3), (2, 3), (2, 4), (3, 4)])
   print(detach 3 [])
   print(detach 4 [(1,2), (1, 3), (2, 3), (2, 4), (3, 4)])
-  print(path 3 3 [])
-  print(path 1 4 [(1,2), (1, 3), (2, 3), (2, 4), (3, 4)])
