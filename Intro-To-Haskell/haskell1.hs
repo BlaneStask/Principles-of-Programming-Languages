@@ -23,6 +23,14 @@ detach n (x:xs)
     | n == fst x = detach n xs
     | n == snd x = detach n xs
     | otherwise = x : detach n xs
+    
+-- d
+path :: Node -> Node -> Graph -> [Path]
+path n m [] = []
+path n m g
+    | n == m = [[m]]
+    | adj n g == [] = []
+    | otherwise = n : [path y m (detach n g) | y <- adj n g]
 
 -- 2
 type Key = Int
